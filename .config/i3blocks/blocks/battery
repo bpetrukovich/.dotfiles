@@ -56,7 +56,7 @@ if ($status eq 'Discharging') {
 $short_text = $full_text;
 
 if ($acpi =~ /(\d\d:\d\d):/) {
-    $full_text .= " $percent%";
+    $full_text .= "  $percent%";
 }
 
 # Print text
