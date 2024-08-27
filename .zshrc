@@ -83,7 +83,6 @@ plugins=(
   npm
   yarn
   z
-  sudo
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -127,4 +126,8 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-bindkey -v
+# vim mode
+# bindkey -v
+
+PATH="$PATH":"$HOME/.local/scripts/"
+bindkey -s ^f "tmux-sessionizer\n"

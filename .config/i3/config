@@ -1,6 +1,5 @@
 set $mod Mod4
 
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:JetBrainsMonoNerdFont 11
@@ -69,28 +68,34 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # language
 exec_always "setxkbmap -layout us,ru -option grp:alt_shift_toggle -option ctrl:swapcaps"
+# screenshot
+bindsym Print exec flameshot gui
 
 # Workspaces
 
-set $ws1 "1:FIREFOX  "
-set $ws2 "2:CODE     "
+set $ws1 "1.FIREFOX  "
+set $ws2 "2.TMUX     "
 set $ws3 "3          "
 set $ws4 "4          "
 set $ws5 "5          "
 set $ws6 "6          "
 set $ws7 "7          "
 set $ws8 "8          "
-set $ws9 "9          "
-set $ws10 "10:TELEGRAM"
+set $ws9 "9.OBSIDIAN "
+set $ws10 "10.TELEGRAM"
 
+# xprop | grep CLASS
 assign [class="firefox"] $ws1
 assign [class="TelegramDesktop"] $ws10
+assign [class="obsidian"] $ws9
 
 # autostart
 
 # fade: -f --fade-delta=5
 # exec_always --no-startup-id picom -b -c 
 exec firefox
+exec --no-startup-id i3-msg 'workspace $ws2; exec i3-sensible-terminal'
+exec obsidian
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -122,26 +127,35 @@ set $inactive-bg-color   #cccccc
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
+
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #ffffff
 client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #ffffff
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #ffffff
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #ffffff
 
+set $bar-bg-color            #F38BA8
+set $bar-inactive-bg-color   #25212D
+set $bar-binding-bg-color   #EBBCBA 
+set $bar-text-color          #f3f4f5
+set $bar-inactive-text-color #86888c 
+set $bar-urgent-bg-color     #C4A7E7 
+set $bar-border-color        $bar-inactive-bg-color 
+
 # bar
 bar {
         position bottom
         status_command i3blocks
         colors {
-                background  #1c1024
+                background  #191724 
                 statusline  #dddddd
                 separator   #666666
                 # class             border  backgr. text
-                focused_workspace   #ef6191 #ef6191 #ffffff
-                active_workspace    #ef6191 #ef6191 #ffffff
-                inactive_workspace  #212121 #212121 #86888c
-                urgent_workspace    #d64e4e #d64e4e #ffffff
-                binding_mode        #229c56 #229c56 #ffffff
+                focused_workspace   $bar-bg-color $bar-bg-color $bar-text-color 
+                active_workspace    $bar-bg-color $bar-bg-color $bar-text-color
+                inactive_workspace  $bar-inactive-bg-color $bar-inactive-bg-color $bar-inactive-text-color
+                urgent_workspace    $bar-urgent-bg-color $bar-urgent-bg-color $bar-text-color
+                binding_mode        $bar-binding-bg-color $bar-binding-bg-color $bar-text-color
     }
 }
 
@@ -159,6 +173,8 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+
+set $Locker i3lock -c 3b3657
 
 # system mode
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -181,7 +197,7 @@ exec libinput Natural Scrolling Enabled
 exec xinput set-prop "DELL0A24:00 06CB:CDD6 Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # wallpaper
-exec_always feh --bg-scale /home/bogdan/Pictures/wallpapers/1.jpg
+exec_always feh --bg-scale /home/bogdan/Pictures/wallpapers/5.jpeg
 
 # borders, gaps
 hide_edge_borders both
