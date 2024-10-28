@@ -128,6 +128,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # vim mode
 # bindkey -v
-
+PATH="$PATH":"$HOME/.local/share/bob/nvim-bin/"
 PATH="$PATH":"$HOME/.local/scripts/"
 bindkey -s ^f "tmux-sessionizer\n"
