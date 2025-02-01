@@ -113,9 +113,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vi="nvim"
 alias vim="nvim"
+alias vim.="nvim ."
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias fd='fdfind'
+alias c1="awk '{ print \$1 }'"
+alias c2="awk '{ print \$2 }'"
+alias c3="awk '{ print \$3 }'"
+alias c4="awk '{ print \$4 }'"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -130,4 +136,5 @@ export NVM_DIR="$HOME/.nvm"
 # bindkey -v
 PATH="$PATH":"$HOME/.local/share/bob/nvim-bin/"
 PATH="$PATH":"$HOME/.local/scripts/"
+PATH="$PATH":"$HOME/.zig/"
 bindkey -s ^f "tmux-sessionizer\n"
