@@ -83,6 +83,8 @@ plugins=(
   npm
   yarn
   z
+  zsh-vi-mode
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -134,7 +136,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # vim mode
 # bindkey -v
-PATH="$PATH":"$HOME/.local/share/bob/nvim-bin/"
+# PATH="$PATH":"$HOME/.local/share/bob/nvim-bin/"
 PATH="$PATH":"$HOME/.local/scripts/"
 PATH="$PATH":"$HOME/.zig/"
+PATH="$PATH":"/usr/local/go/bin"
 bindkey -s ^f "tmux-sessionizer\n"
