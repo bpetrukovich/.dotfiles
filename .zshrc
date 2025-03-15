@@ -11,6 +11,9 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export CHROME_BIN="/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe"
+export BROWSER="/mnt/c/Program\ Files\ \(x86\)/Microsoft/Edge/Application/msedge.exe"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -83,7 +86,7 @@ plugins=(
   npm
   yarn
   z
-  zsh-vi-mode
+  vi-mode
   zsh-syntax-highlighting
 )
 
@@ -141,3 +144,7 @@ PATH="$PATH":"$HOME/.local/scripts/"
 PATH="$PATH":"$HOME/.zig/"
 PATH="$PATH":"/usr/local/go/bin"
 bindkey -s ^f "tmux-sessionizer\n"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
