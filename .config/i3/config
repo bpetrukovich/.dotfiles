@@ -197,7 +197,7 @@ exec libinput Natural Scrolling Enabled
 exec xinput set-prop "DELL0A24:00 06CB:CDD6 Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # wallpaper
-exec_always feh --bg-scale /home/bogdan/Pictures/wallpapers/5.jpeg
+exec_always feh --bg-scale /home/bogdan/Pictures/wallpapers/wallpaper.png
 
 # borders, gaps
 hide_edge_borders both
