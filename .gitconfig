@@ -1,0 +1,18 @@
+[include]
+    path = ~/.gitconfig-local
+[includeIf "gitdir:~/projects/itr/"] path = ~/.gitconfig-iqvia
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+	excludesFile = ~/.gitignore
+	pager = delta
+[push]
+	autoSetupRemote = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	dark = true
+[merge]
+	conflictStyle = zdiff3
